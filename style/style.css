@@ -1,0 +1,317 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+
+  margin: 0;
+  font-size: 20px;
+  font-family: Monaco serif;
+  background-color: #dfdfdf;
+}
+
+div {
+  margin-bottom: 30px;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0px 0px 20px 0px;
+
+}
+
+p {
+
+  padding-left: 40px;
+  padding-right: 40px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+}
+
+ul,
+li,
+ol,
+a {
+  padding: 5px;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0 170px 170px 170px;
+  background-color: #f9f9fd;
+  text-align: left;
+
+  border-radius: 8px;
+}
+
+.title {
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.warning {
+  color: #fff;
+  border-radius: 8px;
+  background-color: tomato;
+  padding-left: 40px;
+
+  box-shadow: 2px 5px 4px 1px rgba(0, 0, 0, 0.3);
+  padding-right: 40px;
+
+}
+
+.information {
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 1260px;
+  display: inline-block;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 8px;
+  color: white;
+  box-shadow: 2px 5px 4px 1px rgba(0, 0, 0, 0.3);
+
+
+  background-color: rgb(66, 66, 66);
+}
+
+.img {
+  display: inline-block;
+  /* width: 600px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+}
+
+.bg {
+  padding: 20px;
+  width: 1260px;
+  display: block;
+  background-color: #dfdfdf;
+  border-radius: 8px;
+  margin: 0px 0px 20px 0px;
+  box-shadow: 2px 5px 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+.icons {
+  gap: 30px;
+  text-decoration: none;
+  color: #afb1b8;
+  font-family: sans-serif;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: #afb1b8;
+  padding: 6px;
+  border: 1px solid #afb1b8;
+  border-radius: 8px;
+
+}
+
+.icon:hover {
+  cursor: pointer;
+  fill: #2196F3;
+  border: 1px solid #2196F3;
+}
+
+
+/* ======================================== */
+
+.box {
+
+
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: tomato;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  /*  Set transition values  */
+  transition-property: background-color, transform;
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-delay: 0;
+
+
+}
+
+/* On hover, change the values of animated properties */
+.box:hover {
+  background-color: teal;
+  transform: rotate(180deg);
+}
+
+/* ======================================== */
+
+.flex-container {
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.10);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  transition-property: transform;
+}
+
+.flex-container:hover .circle {
+  transform: scale(1.5);
+}
+
+.circle:nth-child(1) {
+  background-color: orange;
+
+  transition-duration: 500ms;
+}
+
+.circle:nth-child(2) {
+  background-color: #03a9f4;
+
+  transition-duration: 1500ms;
+}
+
+.circle:nth-child(3) {
+  background-color: palevioletred;
+
+  transition-duration: 3000ms;
+}
+
+/* ======================================== */
+
+.circle-container {
+
+  border: 2px dashed #2a2a2a;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.circle-in {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  transform: translatex(0);
+  transition-property: transform;
+  transition-duration: 2000ms;
+}
+
+.circle-in:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.circle-container:hover .circle-in {
+  transform: translatex(calc(100vw - 86px));
+}
+
+.circle-in:nth-child(1) {
+  background-color: #f44336;
+  transition-timing-function: linear;
+}
+
+.circle-in:nth-child(2) {
+  background-color: #3f51b5;
+  transition-timing-function: ease;
+}
+
+.circle-in:nth-child(3) {
+  background-color: #00bcd4;
+  transition-timing-function: ease-in;
+}
+
+.circle-in:nth-child(4) {
+  background-color: #4caf50;
+  transition-timing-function: ease-out;
+}
+
+.circle-in:nth-child(5) {
+  background-color: #ffeb3b;
+  transition-timing-function: ease-in-out;
+}
+
+.circle-in:nth-child(6) {
+  background-color: #e91e63;
+  transition-timing-function: cubic-bezier(0.39, 1.03, 0.82, 0.08);
+}
+
+/* ======================================== */
+
+.box-delay {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: tomato;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  transition-property: background-color, transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+
+  transition-delay: 500ms;
+}
+
+.box-delay:hover {
+  background-color: teal;
+  transform: rotate(180deg);
+}
+
+/* ======================================== */
+.box-tdelay {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: tomato;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  transition: background-color 500ms linear, transform 500ms ease-in-out 500ms;
+}
+
+.box-tdelay:hover {
+  background-color: teal;
+  transform: rotate(180deg);
+}
+
+/* ======================================== */
