@@ -29,7 +29,7 @@
           A за указанное время. Для анимаций с большим количеством состояний
           необходимо использовать CSS-анимацию.
         </p>
-        <img src="./images/transition-states.png" width="600" />
+        <img class="img" src="./images/transition-states.png" width="600" />
         <p>
           Следующие четыре свойства управляют различными параметрами перехода.
         </p>
@@ -227,18 +227,29 @@
           выполнить шаги <b>Layout > Paint > Composite</b>, а это довольно
           дорогостоящая операция для производительности веб-страницы.
         </p>
-        <img src="./images/animating-width.jpg" width="600" alt="" />
+        <img
+          class="img"
+          src="./images/animating-width.jpg"
+          width="600"
+          alt=""
+        />
         <p>
           Анимация свойтсва <b>background</b> не влияет на геометрию элементов,
           поэтому браузеру достаточно выполнить шаги <b>Paint > Composite</b>.
         </p>
-        <img src="./images/animating-background.jpg" width="600" alt="" />
+        <img
+          class="img"
+          src="./images/animating-background.jpg"
+          width="600"
+          alt=""
+        />
         <p>
           Для анимации свойств <b>opacity</b> и <b>transform</b> браузеру не
           нужно рассчитывать новую геометрию или перерисовывать слои, достаточно
           выполнить только шаг <b>Composite</b>.
         </p>
         <img
+          class="img"
           src="./images/animating-opacity-transform.jpg"
           width="600"
           alt=""
@@ -255,6 +266,294 @@
           может отображаться по-разному, в зависимости от мощности вашего
           компьютера.
         </p>
+        <h3 class="title">CSS-анимация</h3>
+        <p>
+          Как и переходы, анимация придаёт веб-страницам динамичность, но в
+          отличие от переходов, анимации не нужен обязательный инициатор
+          (событие), её можно повторить бесконечное количество раз, и между
+          начальным и конечным состояними может быть любое количество
+          промежуточных состояний.
+        </p>
+        <img
+          src="./images/transition-states.png"
+          width="600"
+          alt=""
+          class="img"
+        />
+        <h3 class="title">Объявление анимации</h3>
+        <p>
+          Анимация объявляется директивой <b>@keyframes</b>, которая позволяет
+          описать набор кадров (<b>frames</b>, состояний) анимации, которых
+          должно быть как минимум два (начальный и конечный).
+        </p>
+        <p class="bg">
+          /* Имя должно быть описательным, то есть что это за анимация. */
+          <br /><br />
+          @keyframes имяАнимации { <br /><br />
+          /* Тут будут описываться кадры */ <br /><br />
+          }
+        </p>
+        <p>
+          Кадры определяют в какой момент времени изменяются анимируемые
+          свойства и описываются ключевыми словами from (псевдоним 0%) и to
+          (псевдоним 100%) или, чаще всего, в виде процентов в промежутке
+          0%-100%, так как проценты позволяют указать произвольное значение.
+        </p>
+        <p class="bg">
+          /* Имя должно быть описательным, то есть что это за анимация. */
+          <br />
+          @keyframes имяАнимации { <br />
+          0% { <br /><br />
+          /* Свойства для изменения */bracketSpacing } <br /><br />
+
+          /* Произвольное количество промежуточных кадров */ <br />
+
+          100% { <br />
+          /* Свойства для изменения */ <br />
+          } <br />
+          }
+        </p>
+        <p class="information">
+          В анимации не указывается время или элемент, к которому она будет
+          применяться, это значит, что одну и ту же анимацию можно использовать
+          повторно для разных элементов.
+        </p>
+        <p>
+          Объявим анимацию для изменения цвета фона элемента в трёх точках: 0%,
+          50% и 100%.
+        </p>
+        <p class="bg">
+          @keyframes changeBgColor {<br />
+          0% {<br />
+          background-color: teal; <br />
+          } <br /><br />
+
+          50% {<br />
+          background-color: orange;<br />
+          } <br /><br />
+
+          100% {<br />
+          background-color: deepskyblue;<br />
+          } <br />
+          }
+        </p>
+        <h3 class="title">Свойства анимации</h3>
+        <h2 class="title">animation-name</h2>
+        <p>
+          Чтобы использовать уже объявленную анимацию, нужно указать её имя в
+          качестве значения для свойства animation-name.
+        </p>
+        <p class="bg">
+          .box { <br />
+          animation-name: changeBgColor; <br />
+          }
+        </p>
+        <p>
+          Анимацию можно добавить к селектору, тогда она будет применена сразу,
+          при загрузке страницы. Также можно применить анимацию по событию,
+          например ховеру или фокусу, используя соответствующие псевдоклассы.
+        </p>
+        <p class="bg">
+          . box { <br />
+          /* Базовые стили элемента */ <br />
+          } <br /><br />
+
+          /* Добавляем анимацию по ховеру */ <br />
+          .box:hover { <br />
+          animation-name: changeBgColor; <br />
+          }
+        </p>
+        <h2 class="title">animation-duration</h2>
+        <p>
+          Устанавливает продолжительность анимации - время, за которое будут
+          пройдены все кадры. Задаётся в секундах или миллисекундах. Если не
+          задать длительность, анимация будет мгновенной.
+        </p>
+        <p class="bg">
+          .box { <br />
+          animation-name: changeBgColor; <br />
+          animation-duration: 3000ms; <br />
+          }
+        </p>
+        <p>
+          По умолчанию анимация происходит один раз, и финальные значения
+          анимируемых свойств не сохраняются, вместо этого элемент возвращается
+          к своему исходному состоянию.
+        </p>
+        <div class="box__two"></div>
+        <h2 class="title">animation-timing-function</h2>
+        <p>
+          Устанавливает функцию распределения времени для анимациии, значения
+          аналогичны transition-timing-function в CSS-переходах.
+        </p>
+        <p class="bg">
+          .box { <br />
+          animation-name: changeBgColor; <br />
+          animation-duration: 3000ms; <br />
+          animation-timing-function: linear; <br />
+          }
+        </p>
+        <h2 class="title">animation-delay</h2>
+        <p>
+          Устанавливает задержку перед началом анимации в секундах или
+          миллисекундах.
+        </p>
+        <p class="bg">
+          .box { <br />
+          animation-name: changeBgColor; <br />
+          animation-duration: 3000ms; <br />
+          animation-timing-function: linear; <br />
+          animation-delay: 1000ms; <br />
+          }
+        </p>
+        <h2 class="title">animation-iteration-count</h2>
+        <p>Устанавливает количество полных повторений анимации.</p>
+        <p class="bg">
+          .box { <br />
+          animation-name: changeBgColor; <br />
+          animation-duration: 3000ms; <br />
+          animation-timing-function: linear; <br />
+          animation-iteration-count: 5; <br />
+          }
+        </p>
+        <p>
+          Значение может быть целым положительным числом или ключевым словом
+          <b>infinite</b> - это сделает анимацию бесконечной.
+        </p>
+        <img
+          class="spin"
+          src="https://cdn-icons-png.flaticon.com/512/869/869869.png"
+          alt="Sun"
+          width="300"
+          height="300"
+        />
+        <h2 class="title">animation-direction</h2>
+        <p>
+          Контролирует направление воспроизведения анимации - от начального до
+          конечного кадра, наоборот от конечного кадра до начального, или может
+          быть необходимо чтобы порядок чередовался на каждом повторении.
+        </p>
+        <p class="bg">
+          .box { <br />
+          animation-name: changeBgColor; <br />
+          animation-duration: 3000ms; <br />
+          animation-timing-function: linear; <br />
+          animation-iteration-count: infinite; <br />
+          animation-direction: alternate; <br />
+          }
+        </p>
+        <ul>
+          <li>
+            <b>normal</b> - анимация воспроизводится от начального до конечного
+            кадра, после чего сразу возвращается в начальный кадр для следующего
+            повторения (сбрасывается в начальное состояние). Это значение по
+            умолчанию.
+          </li>
+          <li>
+            <b>reverse</b> - анимация воспроизводится в обратном направлении,
+            начиная от конечного кадра и до начального, после чего сразу
+            возвращается в конечный кадр для следующего повторения.
+          </li>
+          <li>
+            <b>alternate</b> - первый раз воспроизведение начинается от
+            начального и до конечного кадра, после чего происходит изменение
+            направления на каждом последующем повторении.
+          </li>
+          <li>
+            <b>alternate-reverse</b> - первый раз воспроизведение начинается от
+            конечного и до начального кадра, после чего происходит изменение
+            направления на каждом последующем повторении.
+          </li>
+        </ul>
+        <div class="box__normal">normal</div>
+        <div class="box__reverse">reverse</div>
+        <div class="box__alternate">alternate</div>
+        <div class="box__alternate-reverse">alternate-reverse</div>
+        <h2 class="title">animation-fill-mode</h2>
+        <p>
+          Определяет, что происходит со стилями элемента до начала анимации и
+          после её окончания. То есть позволяет указать, должны ли стили
+          анимации применяться к элементу вне анимации.
+        </p>
+        <p class="bg">
+          <b>animation-fill-mode: none | forwards | backwards | both</b>
+        </p>
+        <ul>
+          <li>
+            <b>none </b>- стили анимации влияют на элемент только во время
+            анимации. До и после анимации элемент находится в своём исходном
+            состоянии. Значение по умолчанию.
+          </li>
+          <li>
+            <b>forwards </b>- стили, применённые в конце анимации, остаются на
+            элементе после её окончания.
+          </li>
+          <li>
+            <b>backwards </b>- стартовые стили анимации будут применены к
+            элементу ещё до старта анимации.
+          </li>
+          <li>
+            <b>both </b>- совмещает forwards и backwards, стили применяются до и
+            после анимации.
+          </li>
+        </ul>
+        <div class="container__fill">
+          <div class="box__none">none</div>
+          <div class="box__forwards">forwards</div>
+          <div class="box__backwards">backwards</div>
+          <div class="box__both">both</div>
+        </div>
+        <h2 class="title">animation-play-state</h2>
+        <p>
+          Позволяет приостановить воспроизведение анимации. По умолчанию задано
+          значение running. Если установить значение paused, например при
+          :hover, анимация будет приостановлена пока курсор мыши находится над
+          элементом.
+        </p>
+        <div class="box__play"></div>
+        <h3 class="title">Свойство animation</h3>
+        <p>
+          Составное свойство позволяет более кратко записать свойства анимации.
+        </p>
+        <p class="bg">
+          <b
+            >animation: [name] [duration] [timing-function] [delay]
+            [iteration-count] [direction] [fill-mode] [play-state]</b
+          >
+        </p>
+        <p>
+          Значения необязательных свойств можно пропустить или поменять местами.
+          Исключение составляют свойства duration и delay - значение
+          длительности анимации всегда должно указываться до задержки.
+        </p>
+        <p class="bg">
+          .box { <br />
+          animation: magic 2s infinite; <br />
+          } <br /><br />
+
+          .box { <br />
+          animation: magic 2s 0.5s ease-in-out;<br />
+          } <br /><br />
+
+          .box {<br />
+          animation: magic 2s ease-in-out 0.5s forwards;<br />
+          } <br /><br />
+
+          .box { <br />
+          animation: magic 2s forwards infinite ease-out 0.5s; <br />
+          } <br /><br />
+
+          @keyframes magic { <br />
+          /* ... */ <br />
+          }
+        </p>
+        <h3 class="title">Перспектива</h3>
+        <p>
+          По умолчанию элемент рендерится в 2D-пространстве и при трансформациях
+          по осям X и Y, например rotate, искажается и выглядит неестественно.
+        </p>
+        <h1 class="title">TBC</h1>
+        <img src="./images/perspective-intro.png" alt="" class="img" />
       </div>
     </header>
     <script src="./js/script.js"></script>

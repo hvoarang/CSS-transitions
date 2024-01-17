@@ -315,3 +315,201 @@ a {
 }
 
 /* ======================================== */
+.box__two {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+/* Adds animation when hovering. */
+.box__two:hover {
+  animation-name: changeBgColor;
+  animation-duration: 3000ms;
+}
+
+@keyframes changeBgColor {
+  0% {
+    background-color: teal;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: deepskyblue;
+  }
+}
+
+/* ======================================== */
+.spin {
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ======================================== */
+
+.box__normal,
+.box__reverse,
+.box__alternate,
+.box__alternate-reverse {
+  width: 150px;
+  padding: 4px 8px;
+  border: 2px solid #212121;
+  border-radius: 4px;
+  text-align: center;
+
+  animation-name: move;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.box__normal {
+  animation-direction: normal;
+  background-color: #3f51b5;
+}
+
+.box__reverse {
+  animation-direction: reverse;
+  background-color: #f57c00;
+}
+
+.box__alternate {
+  animation-direction: alternate;
+  background-color: #009688;
+}
+
+.box__alternate-reverse {
+  animation-direction: alternate-reverse;
+  background-color: #e91e63;
+}
+
+@keyframes move {
+  0% {
+    transform: translatex(0);
+  }
+
+  100% {
+    transform: translatex(calc(100vw - 166px));
+  }
+}
+
+/* ======================================== */
+.container__fill {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.box__none,
+.box__forwards,
+.box__backwards,
+.box__both {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #212121;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.box__none:hover,
+.box__forwards:hover,
+.box__backwards:hover,
+.box__both:hover {
+  animation-name: changeBgColor;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+}
+
+.box__none {
+  /* Default value  */
+  animation-fill-mode: none;
+}
+
+.box__forwards {
+  animation-fill-mode: forwards;
+}
+
+.box__backwards {
+  animation-fill-mode: backwards;
+}
+
+.box__both {
+  animation-fill-mode: both;
+}
+
+@keyframes changeBgColor {
+  0% {
+    background-color: teal;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: deepskyblue;
+  }
+}
+
+/* ======================================== */
+.box__play {
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  animation-name: changeBgColor;
+  animation-duration: 3000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Pause animation on hover */
+.box__play:hover {
+  animation-play-state: paused;
+}
+
+@keyframes changeBgColor {
+  0% {
+    background-color: deeppink;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: deepskyblue;
+  }
+}
+
+/* ======================================== */
