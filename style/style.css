@@ -142,8 +142,6 @@ a {
 /* ======================================== */
 
 .box {
-
-
   width: 200px;
   height: 200px;
   border-radius: 10px;
@@ -219,8 +217,8 @@ a {
 /* ======================================== */
 
 .circle-container {
-
-  border: 2px dashed #2a2a2a;
+  /* width: 1260px; */
+  border: 2px dashed rgba(0, 0, 200, 0.5);
   border-radius: 4px;
   padding: 10px;
 }
@@ -365,11 +363,15 @@ a {
 }
 
 /* ======================================== */
+.box__direction {
+  position: relative;
+}
 
 .box__normal,
 .box__reverse,
 .box__alternate,
 .box__alternate-reverse {
+
   width: 150px;
   padding: 4px 8px;
   border: 2px solid #212121;
