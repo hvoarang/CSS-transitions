@@ -327,7 +327,7 @@ a {
 /* Adds animation when hovering. */
 .box__two:hover {
   animation-name: changeBgColor;
-  animation-duration: 3000ms;
+  animation-duration: 3001ms;
 }
 
 @keyframes changeBgColor {
