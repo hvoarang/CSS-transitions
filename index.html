@@ -549,6 +549,8 @@
         выглядят плоскими и искажённым, потому что им не хватает перспективы, то
         есть глубины сцены.
       </p>
+
+      <!-- =============== deg ============= -->
       <div class="deg">
         <div class="scene">
           <div class="box__deg rotate-x">rotateX(60deg)</div>
@@ -557,6 +559,223 @@
         <div class="scene">
           <div class="box__deg rotate-y">rotateY(60deg)</div>
         </div>
+      </div>
+      <!-- =============== /deg ============= -->
+      <h3 class="title">Функция perspective()</h3>
+      <p>
+        Это еще одна функция трансформации для свойства <b>transform</b>,
+        которая позволяет задать перспективу одному элементу, к которому
+        применяется.
+      </p>
+      <!-- =============== perspective() ============= -->
+      <div class="deg">
+        <div class="scene">
+          <div class="box__deg rotate__x">rotateX(60deg)</div>
+        </div>
+
+        <div class="scene">
+          <div class="box__deg rotate__y">rotateY(60deg)</div>
+        </div>
+      </div>
+      <!-- =============== /perspective ============= -->
+      <p>
+        Задав <b>perspective(400px)</b> мы говорим браузеру о необходимости
+        рендерить <b>div.box__deg-p</b> в 3D-пространстве, добавляя элементу
+        глубину сцены и объём. Значение <b>400px</b> это расстояние до сцены, на
+        которой находится элемент. Чем меньше значение, тем зритель ближе к
+        сцене и наоборот. <br /><br />
+        При использовании сразу на нескольких элементах, у каждого создаётся
+        своя сцена и перспектива, то есть зритель как будто смотрит на каждый
+        элемент из разной точки.
+      </p>
+      <div class="scene__p">
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+        <div class="box__deg-p"></div>
+      </div>
+      <h2 class="title">Свойство perspective</h2>
+      <p>
+        Позволяет создать одинаковую перспективу целой группе элементов на
+        сцене. Это свойство задаётся общему контейнеру группы элементов (сцене),
+        в нашем случае div.scene.
+      </p>
+      <div class="per__items">
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+        <div class="per__item"></div>
+      </div>
+      <h3 class="title">2D-трансформации</h3>
+      <p>
+        CSS-трансформации позволяют сдвигать, изменять масштаб и поворачивать
+        элементы, то есть добавлять декоративные эффекты. Трансформации изменяют
+        форму и положение элемента не влияя на остальные элементы страницы. По
+        умолчанию трансформация происходит относительно центра элемента, но это
+        можно изменить.
+      </p>
+      <h2 class="title">Свойство transform</h2>
+      <p>Отвечает за применение одной или более трансформаций к элементу.</p>
+      <p class="bg">
+        <b
+          >transform: none | &lt;тип трансформации&gt; &lt;тип трансформации&gt;
+          ...</b
+        >
+      </p>
+      <p>
+        <b>Трансформированный</b> элемент - это элемент с любым установленным
+        значением свойства transform, отличным от none.
+      </p>
+      <h3 class="title">Масштабирование</h3>
+      <p>
+        Функции <b>scaleX(tx)</b>, <b>scaleY(ty)</b> и
+        <b>scale(tx, ty)</b> масштабируют блок по ширине и/или высоте, не влияя
+        на геометрию окружающих элементов. Если для <b>scale()</b> указано одно
+        значение, второе будет такое же самое.
+      </p>
+      <p class="bg">
+        .box {<br />
+        transform: scale(1.15);<br />
+        }
+      </p>
+      <p>
+        Начальный масштаб элемента - 1. Значения от 1 до 0 уменьшают элемент,
+        больше 1 - наоборот, увеличивают. Например, значение
+        <b>scale(1.25)</b> это 125% от начального размера, а
+        <b>scale(0.75) - 75%</b>.
+      </p>
+
+      <div class="scale__items">
+        <div class="scale__item"></div>
+        <div class="scale__item"></div>
+        <div class="scale__item"></div>
+      </div>
+      <h2 class="title">Поворот</h2>
+      <p>
+        Функция <b>rotate(угол)</b> поворачивает элементы на заданное количество
+        градусов <b>(единица deg)</b>. Положительные значения поворачивают
+        элемент по часовой стрелке, отрицательные - против.
+      </p>
+      <p class="bg">
+        .box { <br />
+        transform: rotate(45deg);<br />
+        }
+      </p>
+      <div class="rotate__items">
+        <div class="rotate__item"></div>
+        <div class="rotate__item"></div>
+        <div class="rotate__item"></div>
+      </div>
+      <p class="information">
+        Значения можно передать не только в градусах, но и в «оборотах» (единица
+        turn). Напимер, rotate(0.5turn) это пол оборота, аналог rotate(180deg).
+      </p>
+      <h3 class="title">Смещение</h3>
+      <p>
+        Функции <b>translateX(tx)</b>, <b>translateY(ty</b>) и
+        <b>translate(tx, ty)</b> перемещают элемент в горизонтальном
+        <b>(ось X)</b> и/или вертикальном <b>(ось Y)</b> направлениях
+        относительно начального положения.
+      </p>
+      <ul>
+        <li>
+          Положительные значения X смещают элемент вправо, отрицательные -
+          влево.
+        </li>
+        <li>
+          Положительные значения Y смещают элемент вниз, отрицательные - вверх.
+        </li>
+      </ul>
+      <p>
+        Значения могут быть в пикселях или процентах. Если значение задано в
+        процентах, то оно рассчитывается от размера смещаемого элемента.
+      </p>
+      <p class="bg">.box { transform: translate(100px, 200px); }</p>
+      <div class="offset__items">
+        <div class="offset__item"></div>
+        <div class="offset__item"></div>
+        <div class="offset__item"></div>
+      </div>
+      <h2 class="title">Центрирование элемента</h2>
+      <p>
+        Рассмотрим приём, при помощи которого можно поставить абсолютно
+        позиционированный элемент точно по центру блока, относительно которого
+        он позиционируется. Техника очень простая и состоит из трёх шагов.
+      </p>
+      <p class="bg">
+        .box { <br />
+        position: absolute; <br />
+        top: 50%; <br />
+        left: 50%; <br />
+        transform: translate(-50%, -50%); <br />
+        }
+      </p>
+      <ol>
+        <li>Абсолютно позициоинируем элемент относительно предка.</li>
+        <li>
+          Задаём элементу свойства top и left со значением 50%, это поставит
+          верхний левый угол элемента ровно по центру предка.
+        </li>
+        <li>
+          Задаём элементу отрицательное смещение (translate) по 50% его высоты и
+          ширины. Это подвинет элемент вверх и влево и отцентрирует внутри
+          предка.
+        </li>
+      </ol>
+      <div class="parent">
+        <div class="child"></div>
+      </div>
+
+      <h2 class="title">Искажение</h2>
+      <p>
+        Функции <b>skewX(угол), и(угол)</b> и
+        <b>skew(x-угол, y-угол)</b> используются для искажения (наклона,
+        деформирования) сторон элемента относительно координатных осей. Если для
+        <b>skew()</b> указано только одно значение, второе будет равно 0, то
+        есть это будет аналог <b>skewX()</b>.
+      </p>
+      <p class="bg">
+        .box { <br />
+        transform: skew(30deg);<br />
+        }
+      </p>
+
+      <div class="skew__items">
+        <div class="skew__item"></div>
+        <div class="skew__item"></div>
+        <div class="skew__item"></div>
+      </div>
+
+      <h2 class="title">Точка трансформации</h2>
+      <p>
+        Свойство <b>transform-origin</b> позволяет сместить точку трансформации,
+        относительно которой происходит изменение положения, размера или формы
+        элемента. Значение по умолчанию — center, или <b>50% 50%</b>. Задаётся
+        только для трансформированных элементов. Не наследуется. <br /><br />
+        В примере точка трансформации каждого элемента обозначена синей меткой.
+        Значения можно указывать не только ключевыми словами, но также в
+        пикселях или процентах.
+      </p>
+      <div class="origin__items">
+        <div class="origin__item">top left</div>
+        <div class="origin__item">top center</div>
+        <div class="origin__item">top right</div>
+        <div class="origin__item">center left</div>
+        <div class="origin__item">center "_" center</div>
+        <div class="origin__item">center right</div>
+        <div class="origin__item">bottom left</div>
+        <div class="origin__item">bottom center</div>
+        <div class="origin__item">bottom right</div>
       </div>
     </div>
 
