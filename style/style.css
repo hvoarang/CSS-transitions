@@ -437,7 +437,6 @@ a {
   border: 1px solid #212121;
   border-radius: 5px;
   background-color: #fff;
-  font-family: sans-serif;
   text-align: center;
 }
 
@@ -445,14 +444,17 @@ a {
 .box__forwards:hover,
 .box__backwards:hover,
 .box__both:hover {
-  animation-name: changeBgColor;
+  animation-name: changeBg-Color;
   animation-duration: 3s;
   animation-timing-function: linear;
   animation-delay: 1s;
 }
 
+
+
+
+
 .box__none {
-  /* Default value  */
   animation-fill-mode: none;
 }
 
@@ -468,7 +470,7 @@ a {
   animation-fill-mode: both;
 }
 
-@keyframes changeBgColor {
+@keyframes changeBg-Color {
   0% {
     background-color: teal;
   }
@@ -489,8 +491,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
 
   animation-name: changeBgColor;
   animation-duration: 3000ms;
@@ -499,7 +500,6 @@ a {
   animation-direction: alternate;
 }
 
-/* Pause animation on hover */
 .box__play:hover {
   animation-play-state: paused;
 }
@@ -530,8 +530,7 @@ a {
   border: 2px solid black;
   border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
 }
 
 .box__deg {
@@ -636,7 +635,6 @@ a {
   width: 390px;
   outline: 3px dashed black;
   border-radius: 4px;
-  margin: -10px;
   background-color: #fff;
 
 }
@@ -888,7 +886,6 @@ a {
 }
 
 .rotate__item:nth-child(2) {
-  /*   transform: rotate(115deg); */
   background-color: #03a9f4;
 
   animation: animate115 3000ms infinite 1000ms;
@@ -899,7 +896,7 @@ a {
 }
 
 .rotate__item:nth-child(3) {
-  /*   transform: rotate(-45deg); */
+
   background-color: palevioletred;
 
   animation: animate45 3000ms infinite 1000ms;
@@ -1219,7 +1216,7 @@ a {
   transform-origin: top center;
 }
 
-.box:nth-child(3)::before {
+.origin__item:nth-child(3)::before {
   transform-origin: top right;
 }
 
@@ -1269,7 +1266,7 @@ a {
 
 .origin__item:nth-child(3)::after {
   top: calc(var(--dot-size) / -2);
-  right: calc(var(--dot-size) / -2);
+  left: calc(var(--dot-size) / -2);
 }
 
 .origin__item:nth-child(4)::after {
