@@ -414,7 +414,7 @@ a {
   }
 
   100% {
-    transform: translatex(calc(100vw - 166px));
+    transform: translatex(calc(1200px));
   }
 }
 
